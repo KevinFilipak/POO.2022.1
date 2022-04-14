@@ -174,5 +174,374 @@ namespace POO._2022._1.ED.Classes
                 Console.WriteLine();
             }
         }
+
+        public static void CadastrarCliente()
+        {
+            Console.Clear();
+            var cliente = new Cliente();
+
+            Console.Write("Digite o Nome: ");
+            cliente.Nome = Console.ReadLine();
+
+            Console.Write("Digite o E-mail: ");
+            cliente.Email = Console.ReadLine();
+
+            Console.Write("Digite o Celular: ");
+            cliente.Celular = Console.ReadLine();
+
+            Console.Write("Digite a Senha: ");
+            cliente.PassHash = Crypto.MD5Hash(Console.ReadLine());
+
+            
+            cliente.Codigo = Clientes.Count + 1;
+
+
+            Clientes.Add(cliente);
+            Console.Clear();
+            Console.WriteLine("Cliente Cadastrado com Sucesso!");
+            Console.WriteLine();
+            cliente.Imprime();
+
+        }
+        public static void CadastrarCorretora()
+        {
+            Console.Clear();
+            var corretora = new Corretora();
+
+            Console.Write("Digite o Nome da corretora: ");
+            corretora.Nome = Console.ReadLine();
+
+            corretora.Codigo = Corretoras.Count + 1;
+
+            Corretoras.Add(corretora);
+            Console.Clear();
+            Console.WriteLine("Corretora Cadastrada com Sucesso!");
+            Console.WriteLine();
+            corretora.Imprime();
+
+        }
+
+        public static void CadastrarMoeda()
+        {
+            Console.Clear();
+            var moeda = new Moeda();
+
+            Console.Write("Digite o Código da moeda: ");
+            moeda.Codigo = Console.ReadLine();
+
+            Console.Write("Digite o nome da moeda: ");
+            moeda.Nome = Console.ReadLine();
+
+            Moedas.Add(moeda);
+            Console.Clear();
+            Console.WriteLine("Moeda Cadastrada com Sucesso!");
+            Console.WriteLine();
+            moeda.Imprime();
+
+        }
+
+        public static void CadastrarCotacao()
+        {
+            Console.Clear();
+
+            string _moedaBase;
+            string _moedaCotacao;
+            string _moedaValor;
+
+            ImprimirMoedas();
+
+            Console.WriteLine();
+            Console.Write("Digite o Código da Moeda Base: ");
+            _moedaBase = Console.ReadLine();
+
+            Console.Write("Digite o Código da Moeda Cotação: ");
+            _moedaCotacao = Console.ReadLine();
+
+            Console.Write("Digite o Valor da Cotação: ");
+            _moedaValor = Console.ReadLine();
+
+            ParMoeda parMoeda = new ParMoeda();
+
+            foreach (var moeda in Moedas)
+            {
+                if (moeda.Codigo == _moedaBase)
+                {
+                    parMoeda.MoedaBase = moeda;
+                }
+
+                if (moeda.Codigo == _moedaCotacao)
+                {
+                    parMoeda.MoedaCotacao = moeda;
+                }
+
+            }
+            parMoeda.Valor = Convert.ToDouble(_moedaValor.ToString());
+
+            ParMoedas.Add(parMoeda);
+
+            Console.Clear();
+            Console.WriteLine("Cotação Cadastrada com Sucesso!");
+            Console.WriteLine();
+            parMoeda.Imprime();
+
+        }
+
+        public static void CadastrarCarteira()
+        {
+            Console.Clear();
+
+            string _corretora;
+            string _cliente;
+            string _endereco;
+
+            ImprimirCorretoras();
+
+            Console.WriteLine();
+            Console.Write("Digite o Código da Corretora: ");
+            _corretora = Console.ReadLine();
+
+            ImprimirClientes();
+
+            Console.Write("Digite o Código do Cliente: ");
+            _cliente = Console.ReadLine();
+
+            Console.Write("Digite o Endereço da Carteira (Número Inteiro): ");
+            _endereco = Console.ReadLine();
+
+            var carteira = new Carteira();
+
+            foreach (var cliente in Clientes)
+            {
+                if (cliente.Codigo.ToString() == _cliente)
+                {
+                    carteira.Cliente = cliente;
+                }
+            }
+
+            carteira.Endereco = Crypto.EncodeBase58(int.Parse(_endereco));
+
+            carteira.ItensCarteira = new List<ItemCarteira>();
+
+
+            foreach (var corretora in Corretoras)
+            {
+                if (corretora.Codigo.ToString() == _corretora)
+                {
+                    corretora.InserirCarteira(carteira);
+                }
+            }
+
+
+            Console.Clear();
+            Console.WriteLine("Carteira Cadastrada com Sucesso!");
+            Console.WriteLine();
+            carteira.Imprime();
+
+        }
+
+        public static void InserirItemCarteira()
+        {
+            Console.Clear();
+
+            string _endereco;
+            string _moeda;
+            string _quantidade;
+
+            ImprimirCarteiras();
+
+            Console.WriteLine();
+            Console.Write("Digite o Endereço da Carteira: ");
+            _endereco = Console.ReadLine();
+
+            ImprimirMoedas();
+
+            Console.WriteLine();
+            Console.Write("Selecione o Código da Moeda: ");
+            _moeda = Console.ReadLine();
+
+            Console.WriteLine();
+            Console.Write("Digite a Quantidade: ");
+            _quantidade = Console.ReadLine();
+
+            var _moedaCarteira = new Moeda();
+
+            foreach (var moeda in Moedas)
+            {
+                if (moeda.Codigo == _moeda)
+                {
+                    _moedaCarteira = moeda;
+                }
+
+            }
+
+            foreach (var corretora in Corretoras)
+            {
+                foreach (var carteira in corretora.Carteiras)
+                {
+                    if (carteira.Endereco == _endereco)
+                    {
+                        carteira.InsereItemCarteira(_moedaCarteira, double.Parse(_quantidade));
+                    }
+                }
+            }
+
+            Console.Clear();
+            Console.WriteLine("Item Inserido com Sucesso!");
+            Console.WriteLine();
+        }
+
+        public static void Depositar()
+        {
+            Console.Clear();
+
+            string _endereco;
+            string _moeda;
+            string _quantidade;
+
+            ImprimirCarteiras();
+
+            Console.WriteLine();
+            Console.Write("Digite o Endereço da Carteira: ");
+            _endereco = Console.ReadLine();
+
+            ImprimirMoedas();
+
+            Console.WriteLine();
+            Console.Write("Selecione o Código da Moeda: ");
+            _moeda = Console.ReadLine();
+
+            Console.WriteLine();
+            Console.Write("Digite a Quantidade: ");
+            _quantidade = Console.ReadLine();
+
+            var _moedaCarteira = new Moeda();
+
+            foreach (var moeda in Moedas)
+            {
+                if (moeda.Codigo == _moeda)
+                {
+                    _moedaCarteira = moeda;
+                }
+
+            }
+
+            var _deposito = false;
+
+            foreach (var corretora in Corretoras)
+            {
+                foreach (var carteira in corretora.Carteiras)
+                {
+                    if (carteira.Endereco == _endereco)
+                    {
+                        foreach (var item in carteira.ItensCarteira)
+                        {
+                            if (item.Moeda.Codigo == _moedaCarteira.Codigo)
+                            {
+                               
+                                carteira.Deposita(_moedaCarteira, double.Parse(_quantidade));
+                                
+                                _deposito = true;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+
+            if (_deposito)
+            {
+                Console.Clear();
+                Console.WriteLine("Operação Finalizada!");
+                Console.WriteLine();
+
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine($"Não existe nenhum item na Carteira Selecionada com a Moeda {_moedaCarteira.Codigo}");
+                Console.WriteLine();
+
+            }
+
+        }
+        public static void Sacar()
+        {
+            Console.Clear();
+
+            string _endereco;
+            string _moeda;
+            string _quantidade;
+
+            ImprimirCarteiras();
+
+            Console.WriteLine();
+            Console.Write("Digite o Endereço da Carteira: ");
+            _endereco = Console.ReadLine();
+
+            ImprimirMoedas();
+
+            Console.WriteLine();
+            Console.Write("Selecione o Código da Moeda: ");
+            _moeda = Console.ReadLine();
+
+            Console.WriteLine();
+            Console.Write("Digite a Quantidade: ");
+            _quantidade = Console.ReadLine();
+
+            var _moedaCarteira = new Moeda();
+
+            foreach (var moeda in Moedas)
+            {
+                if (moeda.Codigo == _moeda)
+                {
+                    _moedaCarteira = moeda;
+                }
+
+            }
+
+            var _saque = false;
+
+
+            foreach (var corretora in Corretoras)
+            {
+                foreach (var carteira in corretora.Carteiras)
+                {
+                    if (carteira.Endereco == _endereco)
+                    {
+                        foreach (var item in carteira.ItensCarteira)
+                        {
+                            if (item.Moeda.Codigo == _moedaCarteira.Codigo)
+                            {
+                                if (item.Quantidade < double.Parse(_quantidade))
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Você não tem saldo disponivel para realizar o saque!");
+                                }
+                                else
+                                {
+                                    carteira.Saca(_moedaCarteira, double.Parse(_quantidade));
+                                    Console.Clear();
+                                }
+                                _saque = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (_saque)
+            {
+                Console.WriteLine("Operação Finalizada!");
+                Console.WriteLine();
+
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine($"Não existe nenhum item na Carteira Selecionada com a Moeda {_moedaCarteira.Codigo}");
+                Console.WriteLine();
+
+            }
+        }
     }
 }

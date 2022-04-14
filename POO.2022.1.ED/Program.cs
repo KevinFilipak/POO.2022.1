@@ -50,8 +50,33 @@ class Program
                 case EnumOpcaoMenu.E: // Corretoras
                     Sistema.ImprimirCorretoras();
                     break;
+                case EnumOpcaoMenu.F: // Cadastro Cliente
+                    Sistema.CadastrarCliente();
+                    break;
+                case EnumOpcaoMenu.G: // Cadastro Cliente
+                    Sistema.CadastrarCorretora();
+                    break;
+                case EnumOpcaoMenu.H: // Cadastrar Moedas
+                    Sistema.CadastrarMoeda();
+                    break;
+                case EnumOpcaoMenu.I: // Cadastrar Cotação
+                    Sistema.CadastrarCotacao();
+                    break;
+                case EnumOpcaoMenu.J: // Cadastrar Carteira
+                    Sistema.CadastrarCarteira();
+                    break;
+                case EnumOpcaoMenu.K: // Inserir Item Carteira
+                    Sistema.InserirItemCarteira();
+                    break;
+                case EnumOpcaoMenu.L: // Depositar
+                    Sistema.Depositar();
+                    break;
+                case EnumOpcaoMenu.M: // Sacar
+                    Sistema.Sacar();
+                    break;
                 case EnumOpcaoMenu.S:
                     break;
+
                 default:
                     Console.WriteLine("Opção não existente!");
                     break;
@@ -75,6 +100,8 @@ class Program
             Console.WriteLine("                            Orientação a Objetos                                ");
             Console.WriteLine("                           Aplicação Criptomoedas                               ");
             Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine();
+
             var _lstMenu = Enum.GetValues(typeof(EnumOpcaoMenu));
 
             foreach (var _menu in _lstMenu)
@@ -106,20 +133,28 @@ public enum EnumOpcaoMenu
     A,
     [Display(Name = "B - Imprimir Moedas")]
     B,
-    [Display(Name = "C - Imprimir Pares")]
+    [Display(Name = "C - Imprimir Cotações")]
     C,
     [Display(Name = "D - Imprimir Carteiras")]
     D,
     [Display(Name = "E - Imprimir Corretoras")]
     E,
-    //[Display(Name = "F - Inserir Carteira")]
-    //F,
-    //[Display(Name = "G - Inserir Item Carteira")]
-    //G,
-    //[Display(Name = "H - Deposita")]
-    //H,
-    //[Display(Name = "I - Saca")]
-    //I,
+    [Display(Name = "F - Cadastrar Cliente")]
+    F,
+    [Display(Name = "G - Cadastrar Corretora")]
+    G,
+    [Display(Name = "H - Cadastrar Moeda")]
+    H,
+    [Display(Name = "I - Cadastrar Cotação")]
+    I,
+    [Display(Name = "J - Cadastrar Carteira")]
+    J,
+    [Display(Name = "K - Inserir Item Carteira")]
+    K,
+    [Display(Name = "L - Depositar")]
+    L,
+    [Display(Name = "M - Sacar")]
+    M,
     [Display(Name = "S - Sair")]
     S,
 }
