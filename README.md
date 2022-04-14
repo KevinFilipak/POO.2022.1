@@ -6,8 +6,4 @@ Principal Objetivo: Criar um programa em linguagem C# que implemente as classes 
 ![Diagrama](https://i.ibb.co/DMJmstx/Captura-de-tela-2022-03-31-134015.png)
 
 
-Trabalho Realizado por:
-Kevin Filipak
-Erick Krzyzanovski 
-Nicolas Peçanha 
-André Luiz de Souza 
+Trabalho Realizado por: Kevin Filipak // Erick Krzyzanovski // Nicolas Peçanha // André Luiz de Souza 
