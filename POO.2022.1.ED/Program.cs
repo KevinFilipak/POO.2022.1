@@ -16,15 +16,14 @@ class Program
 
         Console.WriteLine("===========================================================================================");
         Console.WriteLine();
-        Console.WriteLine("      ██    ██   ████████   ████████           ████████   █████      ████████ ");
-        Console.WriteLine("      ██    ██      ██      ██    ██           ██    ██   ██   ██    ██       ");
-        Console.WriteLine("      ██    ██      ██      ████████   █████   ████████   ██    ██   ████████ ");
-        Console.WriteLine("      ██    ██      ██      ██                 ██    ██   ██   ██          ██ ");
-        Console.WriteLine("      ████████      ██      ██                 ██    ██   █████      ████████ ");
+        Console.WriteLine("          ██    ██   ████████   ████████           ████████   █████      ████████          ");
+        Console.WriteLine("          ██    ██      ██      ██    ██           ██    ██   ██   ██    ██                ");
+        Console.WriteLine("          ██    ██      ██      ████████   █████   ████████   ██    ██   ████████          ");
+        Console.WriteLine("          ██    ██      ██      ██                 ██    ██   ██   ██          ██          ");
+        Console.WriteLine("          ████████      ██      ██                 ██    ██   █████      ████████          ");
         Console.WriteLine();
         Console.WriteLine("Created By: Kevin Filipak // Erick Krzyzanovski // Nicolas Peçanha // André Luiz de Souza ");
         Console.WriteLine("===========================================================================================");
-
 
         Console.WriteLine("Cadastrando Moedas e Pares de Moedas......................................");
         Sistema.CadastrarMoedas();
