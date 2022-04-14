@@ -9,26 +9,59 @@ namespace POO._2022._1.ED.Classes
     public class Carteira
     {
         public string Endereco { get; set; }
-        public string Cliente { get; set; }
+        public Cliente Cliente { get; set; }
         public List<ItemCarteira> ItensCarteira { get; set; }
 
-        public void InsereItemCarteira()
+        public Carteira()
         {
+            ItensCarteira = new List<ItemCarteira>();
+        }
+
+        public void InsereItemCarteira(Moeda moeda, double quantidade)
+        {
+            ItensCarteira.Add(new ItemCarteira
+            {
+                Moeda = moeda,
+                Quantidade = quantidade,
+            });
+
 
         }
+
         public void Imprime()
         {
+            Console.WriteLine($"Endereço da Carteira: {Endereco} ");
+            Console.WriteLine($"Cliente: {Cliente.Codigo} - {Cliente.Nome}");
 
+            foreach (ItemCarteira itemCarteira in ItensCarteira)
+            {
+
+                itemCarteira.Imprime();
+            }
         }
-        public void Deposita()
+
+        public void Deposita(Moeda moeda, double quantidade)
         {
-
+            foreach (ItemCarteira itemCarteira in ItensCarteira)
+            {
+                if (moeda.Codigo == itemCarteira.Moeda.Codigo)
+                {
+                    itemCarteira.Quantidade += quantidade;
+                }
+            }
         }
-        public void Saca()
+
+        public void Saca(Moeda moeda, double quantidade)
         {
+            foreach (ItemCarteira itemCarteira in ItensCarteira)
+            {
+                if (moeda.Codigo == itemCarteira.Moeda.Codigo)
+                {
+                    itemCarteira.Quantidade -= quantidade;
+                }
+            }
 
         }
-
 
     }
 }

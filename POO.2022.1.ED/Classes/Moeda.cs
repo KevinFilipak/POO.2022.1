@@ -13,7 +13,9 @@ namespace POO._2022._1.ED.Classes
 
         public void Imprime()
         {
-           
+            Console.WriteLine();
+            Console.WriteLine($"Código: {Codigo}");
+            Console.WriteLine($"Nome: {Nome}");
         }
         
     }

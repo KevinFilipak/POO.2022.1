@@ -9,17 +9,18 @@ class Program
 { 
     static void Main()
     {
-        Console.WriteLine(Crypto.EncodeBase58(123456));
-        Console.ReadLine();
-        Console.WriteLine("Cadastrando Moedas................");
+        Console.WriteLine("Cadastrando Moedas e Pares de Moedas....");
         Sistema.CadastrarMoedas();
-        Thread.Sleep(1000);
-        Console.WriteLine("Cadastrando Clientes..............");
+        Thread.Sleep(100);
+        Console.WriteLine("Cadastrando Clientes....................");
         Sistema.CadastrarClientes();
-        Thread.Sleep(1000);
-        Console.WriteLine("Cadastrando Corretoras............");
+        Thread.Sleep(100);
+        Console.WriteLine("Cadastrando Corretoras..................");
         Sistema.CadastrarCorretoras();
-        Thread.Sleep(1000);
+        Thread.Sleep(100);
+        Console.WriteLine("Cadastrando Carteiras...................");
+        Sistema.CadastrarCarteiras();
+        Thread.Sleep(100);
 
         Console.Clear();
         Console.WriteLine("--------------------------------------------------------------------------------");
@@ -34,27 +35,25 @@ class Program
             Console.Clear();
             switch (opcao)
             {
-                case EnumOpcaoMenu.A:   // Cliente
+                case EnumOpcaoMenu.A:   // Clientes
                     Sistema.ImprimirClientes();
                     break;
-                case EnumOpcaoMenu.B:
+                case EnumOpcaoMenu.B:   // Moedas
                     Sistema.ImprimirMoedas();
-
-
                     break;
-                case EnumOpcaoMenu.C:
-
-
+                case EnumOpcaoMenu.C: //Pares
+                    Sistema.ImprimirPares();
                     break;
-                case EnumOpcaoMenu.D:
-
-
+                case EnumOpcaoMenu.D: // Carteiras
+                    Sistema.ImprimirCarteiras();
+                    break;
+                case EnumOpcaoMenu.E: // Corretoras
+                    Sistema.ImprimirCorretoras();
                     break;
                 case EnumOpcaoMenu.S:
                     break;
                 default:
                     Console.WriteLine("Opção não existente!");
-
                     break;
             }
             Console.WriteLine();
@@ -63,7 +62,6 @@ class Program
             opcao = Menu();
 
         }
-
     }
 
     private static EnumOpcaoMenu Menu()
@@ -83,6 +81,9 @@ class Program
             {
                 Console.WriteLine(((EnumOpcaoMenu)_menu).GetDisplayName());
             }
+
+            Console.WriteLine("--------------------------------------------------------------------------------");
+
 
             Console.WriteLine();
             Console.Write("Digite a opção desejada: ");
@@ -105,20 +106,20 @@ public enum EnumOpcaoMenu
     A,
     [Display(Name = "B - Imprimir Moedas")]
     B,
-    [Display(Name = " - Imprimir Pares")]
-    Z,
-    [Display(Name = " - Imprimir Carteiras")]
-    X,
-    [Display(Name = "C - Imprimir Corretoras")]
+    [Display(Name = "C - Imprimir Pares")]
     C,
-    [Display(Name = "D - Inserir Carteira")]
+    [Display(Name = "D - Imprimir Carteiras")]
     D,
-    [Display(Name = "E - Inserir Item Carteira")]
+    [Display(Name = "E - Imprimir Corretoras")]
     E,
-    [Display(Name = "F - Deposita")]
-    F,
-    [Display(Name = "G - Saca")]
-    G,
+    //[Display(Name = "F - Inserir Carteira")]
+    //F,
+    //[Display(Name = "G - Inserir Item Carteira")]
+    //G,
+    //[Display(Name = "H - Deposita")]
+    //H,
+    //[Display(Name = "I - Saca")]
+    //I,
     [Display(Name = "S - Sair")]
     S,
 }

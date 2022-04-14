@@ -14,6 +14,9 @@ namespace POO._2022._1.ED.Classes
 
         public void Imprime()
         {
+            Console.WriteLine();
+            Console.WriteLine($"Vender: {MoedaCotacao.Codigo} Comprar: {MoedaBase.Codigo} Cotação: {Valor.ToString("N2")}");
+            
 
         }
     }
