@@ -14,30 +14,30 @@ class Program
 
         Console.ForegroundColor= ConsoleColor.Green;
 
-        Console.WriteLine("==========================================================================");
+        Console.WriteLine("===========================================================================================");
         Console.WriteLine();
-        Console.WriteLine("  ██    ██   ████████   ████████           ████████   █████      ████████ ");
-        Console.WriteLine("  ██    ██      ██      ██    ██           ██    ██   ██   ██    ██       ");
-        Console.WriteLine("  ██    ██      ██      ████████   █████   ████████   ██    ██   ████████ ");
-        Console.WriteLine("  ██    ██      ██      ██                 ██    ██   ██   ██          ██ ");
-        Console.WriteLine("  ████████      ██      ██                 ██    ██   █████      ████████ ");
+        Console.WriteLine("      ██    ██   ████████   ████████           ████████   █████      ████████ ");
+        Console.WriteLine("      ██    ██      ██      ██    ██           ██    ██   ██   ██    ██       ");
+        Console.WriteLine("      ██    ██      ██      ████████   █████   ████████   ██    ██   ████████ ");
+        Console.WriteLine("      ██    ██      ██      ██                 ██    ██   ██   ██          ██ ");
+        Console.WriteLine("      ████████      ██      ██                 ██    ██   █████      ████████ ");
         Console.WriteLine();
-        Console.WriteLine("Created By: Kevin Filipak // Erick Krzyzanovski // ");
-        Console.WriteLine("==========================================================================");
+        Console.WriteLine("Created By: Kevin Filipak // Erick Krzyzanovski // Nicolas Peçanha // André Luiz de Souza ");
+        Console.WriteLine("===========================================================================================");
 
 
         Console.WriteLine("Cadastrando Moedas e Pares de Moedas......................................");
         Sistema.CadastrarMoedas();
-       // Thread.Sleep(1000);
+        Thread.Sleep(1000);
         Console.WriteLine("Cadastrando Clientes......................................................");
         Sistema.CadastrarClientes();
-        //Thread.Sleep(1000);
+        Thread.Sleep(1000);
         Console.WriteLine("Cadastrando Corretoras....................................................");
         Sistema.CadastrarCorretoras();
-        //Thread.Sleep(1000);
+        Thread.Sleep(1000);
         Console.WriteLine("Cadastrando Carteiras.....................................................");
         Sistema.CadastrarCarteiras();
-        //Thread.Sleep(1000);
+        Thread.Sleep(1000);
         Console.WriteLine("==========================================================================");
 
 
