@@ -9,20 +9,40 @@ class Program
 { 
     static void Main()
     {
-        Console.WriteLine("Cadastrando Moedas e Pares de Moedas....");
+
+        Console.Title = $"Analise e Desenvolvimento de Sistemas - Programação Orientada a Objeto";
+
+        Console.ForegroundColor= ConsoleColor.Green;
+
+        Console.WriteLine("==========================================================================");
+        Console.WriteLine();
+        Console.WriteLine("  ██    ██   ████████   ████████           ████████   █████      ████████ ");
+        Console.WriteLine("  ██    ██      ██      ██    ██           ██    ██   ██   ██    ██       ");
+        Console.WriteLine("  ██    ██      ██      ████████   █████   ████████   ██    ██   ████████ ");
+        Console.WriteLine("  ██    ██      ██      ██                 ██    ██   ██   ██          ██ ");
+        Console.WriteLine("  ████████      ██      ██                 ██    ██   █████      ████████ ");
+        Console.WriteLine();
+        Console.WriteLine("Created By: Kevin Filipak // Erick Krzyzanovski // ");
+        Console.WriteLine("==========================================================================");
+
+
+        Console.WriteLine("Cadastrando Moedas e Pares de Moedas......................................");
         Sistema.CadastrarMoedas();
-        Thread.Sleep(100);
-        Console.WriteLine("Cadastrando Clientes....................");
+       // Thread.Sleep(1000);
+        Console.WriteLine("Cadastrando Clientes......................................................");
         Sistema.CadastrarClientes();
-        Thread.Sleep(100);
-        Console.WriteLine("Cadastrando Corretoras..................");
+        //Thread.Sleep(1000);
+        Console.WriteLine("Cadastrando Corretoras....................................................");
         Sistema.CadastrarCorretoras();
-        Thread.Sleep(100);
-        Console.WriteLine("Cadastrando Carteiras...................");
+        //Thread.Sleep(1000);
+        Console.WriteLine("Cadastrando Carteiras.....................................................");
         Sistema.CadastrarCarteiras();
-        Thread.Sleep(100);
+        //Thread.Sleep(1000);
+        Console.WriteLine("==========================================================================");
+
 
         Console.Clear();
+
         Console.WriteLine("--------------------------------------------------------------------------------");
         Console.WriteLine("                            Orientação a Objetos                                ");
         Console.WriteLine("                           Aplicação Criptomoedas                               ");
@@ -82,6 +102,7 @@ class Program
                     break;
             }
             Console.WriteLine();
+            Console.WriteLine("--------------------------------------------------------------------------------");
             Console.WriteLine("Pressione qualquer tecla para voltar ao menu!");
             Console.ReadKey();
             opcao = Menu();
@@ -95,12 +116,10 @@ class Program
         {
             
             Console.Clear();
-
             Console.WriteLine("--------------------------------------------------------------------------------");
             Console.WriteLine("                            Orientação a Objetos                                ");
             Console.WriteLine("                           Aplicação Criptomoedas                               ");
             Console.WriteLine("--------------------------------------------------------------------------------");
-            Console.WriteLine();
 
             var _lstMenu = Enum.GetValues(typeof(EnumOpcaoMenu));
 
@@ -110,7 +129,6 @@ class Program
             }
 
             Console.WriteLine("--------------------------------------------------------------------------------");
-
 
             Console.WriteLine();
             Console.Write("Digite a opção desejada: ");
@@ -170,3 +188,4 @@ public static class EnumExtensions
                         .GetName();
     }
 }
+

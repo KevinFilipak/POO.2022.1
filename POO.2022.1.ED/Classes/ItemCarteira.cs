@@ -32,8 +32,7 @@ namespace POO._2022._1.ED.Classes
         }
         public void Imprime()
         {
-            Console.WriteLine();
-            Console.Write($"Moeda: {Moeda.Codigo} Nome: {Moeda.Nome} Quantidade: {Quantidade.ToString("N4")} Valor: {Valor.ToString("N3")}");
+            Console.WriteLine($"Moeda: {Moeda.Codigo} - {Moeda.Nome} Quantidade: {Quantidade.ToString("N4")} Valor: {Valor.ToString("N3")}");
         }
 
     }

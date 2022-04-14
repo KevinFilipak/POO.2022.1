@@ -121,44 +121,67 @@ namespace POO._2022._1.ED.Classes
         public static void ImprimirClientes()
         {
             Console.Clear();
-            
+            Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine("                           Listagem de Clientes                                 ");
+
             foreach (Cliente cliente in Clientes)
             {
                 cliente.Imprime();
             }
+
+            Console.WriteLine("--------------------------------------------------------------------------------");
+
         }
         public static void ImprimirMoedas()
         {
             Console.Clear();
+            Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine("                            Listagem de Moedas                                  ");
 
             foreach (Moeda moeda in Moedas)
             {
                 moeda.Imprime();
             }
+
+            Console.WriteLine("--------------------------------------------------------------------------------");
+
         }
 
         public static void ImprimirPares()
         {
+            Console.Clear();
+            Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine("                            Listagem de Pares                                   ");
             foreach (ParMoeda parMoeda in ParMoedas)
             {
                 parMoeda.Imprime();
             }
+            Console.WriteLine("--------------------------------------------------------------------------------");
+
         }
 
         public static void ImprimirCorretoras()
         {
+            Console.Clear();
+            Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine("                          Listagem de Corretoras                                ");
             foreach (Corretora corretora in Corretoras)
             {
                 corretora.Imprime();
             }
+            Console.WriteLine("--------------------------------------------------------------------------------");
+
         }
 
         public static void ImprimirCarteiras()
         {
+            Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine("                          Listagem de Carteiras                                 ");
             foreach (Corretora corretora in Corretoras)
             {
+                Console.WriteLine("--------------------------------------------------------------------------------");
+
                 Console.WriteLine($"Corretora: {corretora.Nome} ");
-                Console.WriteLine();
 
                 foreach (Carteira carteira in corretora.Carteiras)
                 {
@@ -166,18 +189,20 @@ namespace POO._2022._1.ED.Classes
                     {
                         itemCarteira.ObtemCotacaoMoeda(Moedas[3], ParMoedas); 
                     }
-
                     carteira.Imprime();
                 }
-
-                Console.WriteLine();
-                Console.WriteLine();
             }
+            Console.WriteLine("--------------------------------------------------------------------------------");
+
         }
 
         public static void CadastrarCliente()
         {
             Console.Clear();
+            Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine("                          Cadastro de Clientes                                  ");
+            Console.WriteLine("--------------------------------------------------------------------------------");
+
             var cliente = new Cliente();
 
             Console.Write("Digite o Nome: ");
@@ -199,15 +224,18 @@ namespace POO._2022._1.ED.Classes
             Clientes.Add(cliente);
             Console.Clear();
             Console.WriteLine("Cliente Cadastrado com Sucesso!");
-            Console.WriteLine();
             cliente.Imprime();
+            Console.WriteLine("--------------------------------------------------------------------------------");
+
 
         }
         public static void CadastrarCorretora()
         {
             Console.Clear();
             var corretora = new Corretora();
-
+            Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine("                          Cadastro de Corretoras                                  ");
+            Console.WriteLine("--------------------------------------------------------------------------------");
             Console.Write("Digite o Nome da corretora: ");
             corretora.Nome = Console.ReadLine();
 
@@ -225,6 +253,9 @@ namespace POO._2022._1.ED.Classes
         {
             Console.Clear();
             var moeda = new Moeda();
+            Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine("                          Cadastro de Moedas                                  ");
+            Console.WriteLine("--------------------------------------------------------------------------------");
 
             Console.Write("Digite o Código da moeda: ");
             moeda.Codigo = Console.ReadLine();
@@ -243,7 +274,9 @@ namespace POO._2022._1.ED.Classes
         public static void CadastrarCotacao()
         {
             Console.Clear();
-
+            Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine("                          Cadastro de Cotações                                  ");
+            Console.WriteLine("--------------------------------------------------------------------------------");
             string _moedaBase;
             string _moedaCotacao;
             string _moedaValor;
@@ -289,6 +322,9 @@ namespace POO._2022._1.ED.Classes
         public static void CadastrarCarteira()
         {
             Console.Clear();
+            Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine("                          Cadastro de Carteiras                                 ");
+            Console.WriteLine("--------------------------------------------------------------------------------");
 
             string _corretora;
             string _cliente;
@@ -342,6 +378,9 @@ namespace POO._2022._1.ED.Classes
         public static void InserirItemCarteira()
         {
             Console.Clear();
+            Console.WriteLine("--------------------------------------------------------------------------------");
+            Console.WriteLine("                         Inserir Item na Carteira                               ");
+            Console.WriteLine("--------------------------------------------------------------------------------");
 
             string _endereco;
             string _moeda;
@@ -393,7 +432,6 @@ namespace POO._2022._1.ED.Classes
         public static void Depositar()
         {
             Console.Clear();
-
             string _endereco;
             string _moeda;
             string _quantidade;
